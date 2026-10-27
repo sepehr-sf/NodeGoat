@@ -23,8 +23,9 @@ jobs:
           scan-ref: '.'
           scanners: 'vuln'
           format: 'table'
-          severity: 'HIGH,CRITICAL'
-          exit-code: '0'
+          severity: 'CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1'
 
       - name: Run Trivy (SARIF)
         uses: aquasecurity/trivy-action@v0.36.0
@@ -33,8 +34,9 @@ jobs:
           scan-ref: '.'
           scanners: 'vuln'
           format: 'sarif'
-          severity: 'HIGH,CRITICAL'
-          exit-code: '0'
+          severity: 'CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1'
           output: 'trivy-results.sarif'
           skip-setup-trivy: true
 
